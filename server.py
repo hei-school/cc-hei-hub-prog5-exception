@@ -7,7 +7,7 @@ from fastapi.responses import FileResponse
 import logging
 import threading
 import os
-
+import traceback
 
 log_format = "%(asctime)s - %(levelname)s - %(pathname)s:%(lineno)d - %(message)s"
 logging.basicConfig(filename="error.log", level=logging.ERROR, format=log_format)
@@ -21,6 +21,8 @@ request_count = 0
 error_status_codes = [400, 402, 403, 501]
 
 not_legal_image_name = ["not_legal.jpg", "forbidden_document.jpg", "pirate.jpg"]
+
+looked_image_name = ["sensitive_business_file.jpg", "personal_file.jpg"]
 
 
 def reset_request_count():
@@ -176,6 +178,9 @@ def disp_error():
 
 @app.exception_handler(HTTPException)
 async def http_exception_handler(request, exc):
+    error_trace = traceback.format_exc()
+    logging.error(error_trace)
+    logging.error(" --- --- --- --- --- --- --- --- ---" + "\n" + "\n")
     error_message = parse_error_message(exc)
     return JSONResponse(status_code=exc.status_code, content=error_message)
 
@@ -216,7 +221,6 @@ async def get_picture(
     file_name: str = Query(..., description="Name of the image file"),
 ):
     try:
-        # thread.start()
         schedule.run_pending()
         global request_count
         request_count += 1
@@ -228,18 +232,26 @@ async def get_picture(
                 "TooManyRequest",
                 f"must not execute request more than 2 times per second",
             )
-
-        if not os.path.exists(file_path):
-            raise raise_exception(
-                404, "FileNotFound", f"the file with name '{file_name}' is not found."
-            )
-
         if file_name in not_legal_image_name:
             raise raise_exception(
                 453,
                 "LegalReason",
                 f"the file with name '{file_name}' cannot be downloaded for legal reasons",
             )
+
+        if file_name in looked_image_name:
+            raise raise_exception(
+                423,
+                "LockedException",
+                f"the file with name '{file_name}' is looked, so it cannot be downloaded",
+            )
+
+        if not os.path.exists(file_path):
+            raise raise_exception(
+                404, "FileNotFound", f"the file with name '{file_name}' is not found."
+            )
+
+
         return FileResponse(
             file_path,
             media_type="image/jpeg",
@@ -256,6 +268,10 @@ async def get_picture(
 @app.post("/pictures")
 async def upload_files(files: list[UploadFile] = File(...)):
     try:
+        schedule.run_pending()
+        global request_count
+        request_count += 1
+
         await check_file_content(files)
 
         uploaded_files = []
@@ -273,6 +289,13 @@ async def upload_files(files: list[UploadFile] = File(...)):
 
             uploaded_files.append(
                 {"filename": file.filename, "content_type": file.content_type}
+            )
+
+        if request_count > 2:
+            raise raise_exception(
+                429,
+                "TooManyRequest",
+                f"must not execute request more than 2 times per second",
             )
 
         if 20000 < 100:

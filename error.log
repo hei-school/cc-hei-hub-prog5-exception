@@ -1,0 +1,3 @@
+2023-12-13 07:53:27,206 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:149 - DuplicateFile:  already exist.
+2023-12-13 07:53:43,568 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:149 - DuplicateFile:  already exist.
+2023-12-13 07:55:16,344 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:149 - DuplicateFile: github-recovery-codes.txt already exist.

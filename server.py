@@ -31,6 +31,49 @@ def reset_request_count():
 allowed_extensions = {"jpg", "jpeg", "png", "webp"}
 
 
+# UTILS
+
+
+def get_folder_size(folder_path):
+    total_size = 0
+    for dirpath, dirnames, filenames in os.walk(folder_path):
+        for filename in filenames:
+            file_path = os.path.join(dirpath, filename)
+            total_size += os.path.getsize(file_path)
+    return total_size
+
+
+# Convert to human-readable format
+def convert_bytes_to_mb(byte_size):
+    megabyte_size = byte_size / (1024.0 * 1024.0)
+    return megabyte_size
+    # return f"{megabyte_size:.2f} MB"
+
+
+# VALIDATION
+
+
+# Check file storage size
+async def check_storage_space_available(folder_path, max_storage_size, file):
+    folder_size_bytes = get_folder_size(folder_path)
+    folder_size_readable = convert_bytes_to_mb(folder_size_bytes)
+    print(f"Total size of files in '{folder_path}': {folder_size_readable}")
+
+    file_size = file.size / (1024.0 * 1024.0)
+
+    required_size = file_size + folder_size_readable
+
+    diff = max_storage_size - required_size
+
+    if diff < 0:
+        error_code = 507
+        raise raise_exception(
+            error_code,
+            "InsufficientCloudStorage",
+            f"{max_storage_size:.2f} MB maximum storage reached, need {-diff:.2f} MB more",
+        )
+
+
 # Check file size
 async def check_file_size(file_size, max_size_mb=2):
     # Check if file size exceeds the allowed limit
@@ -44,18 +87,19 @@ async def check_file_size(file_size, max_size_mb=2):
 
 
 # Check file size
-async def check_file_extension(file):
-    # Check if the file extension is allowed
-    file_extension = file.filename.split(".")[-1].lower()
-    if file_extension not in allowed_extensions:
+async def check_file_size(file_size, max_size_mb=2):
+    # Check if file size exceeds the allowed limit
+    if file_size > max_size_mb * 1024 * 1024:
+        error_code = 413
         raise raise_exception(
-            400,
-            "BadFileType",
-            f"{file.filename} don't have a valid extension (jpg, jpeg, png)",
+            error_code,
+            "FileTooLarge",
+            f"File size exceeds the allowed limit ({max_size_mb} MB)",
         )
 
 
-async def check_corrupted_image(file):
+# Check file type
+async def check_image_type(file):
     file_bytes = await file.read()
     type_description = magic.from_buffer(file_bytes)
     print(type_description)
@@ -63,6 +107,18 @@ async def check_corrupted_image(file):
     if "image" not in type_description and file_extension in allowed_extensions:
         raise raise_exception(
             500, "CorruptedFile", f"{file.filename} is a corrupted image file"
+        )
+    if "image" in type_description and file_extension not in allowed_extensions:
+        raise raise_exception(
+            401,
+            "NotAuthorized",
+            f"Image with extension {file_extension} is not authorized",
+        )
+    if "image" not in type_description and file_extension not in allowed_extensions:
+        raise raise_exception(
+            400,
+            "BadFileType",
+            f"{file.filename} don't have correct file type (jpg, jpeg, png)",
         )
 
 
@@ -78,7 +134,9 @@ async def check_file_content(files):
             )
 
 
-# V
+# CUSTOM EXCEPTIONS
+
+
 def cast_message_to_exception_message(error_type, message):
     return f"{error_type}{separation_message_type}{message}"
 
@@ -163,7 +221,7 @@ async def get_picture(
         global request_count
         request_count += 1
         file_path = os.path.join("Pictures", file_name)
-
+        print(file_path)
         if request_count > 2:
             raise raise_exception(
                 429,
@@ -205,8 +263,9 @@ async def upload_files(files: list[UploadFile] = File(...)):
         print(files.count)
         for file in files:
             await check_file_size(file.size)
-            await check_file_extension(file)
-            await check_corrupted_image(file)
+            await check_image_type(file)
+            max_storage_size = 6
+            await check_storage_space_available("Pictures", max_storage_size, file)
 
             # Save the file to the 'images' folder
             with open(f"Pictures/{file.filename}", "wb") as image_file:
@@ -254,7 +313,7 @@ async def upload_files(files: list[UploadFile] = File(...)):
         return {"uploaded_files": uploaded_files}
 
     except Exception as e:
-        # logging.error(e.detail)
+        logging.error(e.detail)
         raise e
 
 

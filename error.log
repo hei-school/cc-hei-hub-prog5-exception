@@ -1,3 +1,11 @@
 2023-12-13 07:53:27,206 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:149 - DuplicateFile:  already exist.
 2023-12-13 07:53:43,568 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:149 - DuplicateFile:  already exist.
 2023-12-13 07:55:16,344 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:149 - DuplicateFile: github-recovery-codes.txt already exist.
+2023-12-13 11:53:36,182 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:194 - FileNotFound: the file with name 'p.jpg' is not found.
+2023-12-13 11:53:51,736 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:194 - LegalReason: the file with name 'not_legal.jpg' cannot be downloaded for legal reasons
+2023-12-13 11:54:27,398 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:194 - LegalReason: the file with name 'not_legal.jpg' cannot be downloaded for legal reasons
+2023-12-13 12:46:23,045 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:309 - InsufficientCloudStorage: 6.00 MB maximum storage reached, need 0.41 MB more
+2023-12-13 12:52:09,533 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:322 - NotAuthorized: Image with extension gif is not authorized
+2023-12-13 12:56:11,699 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:316 - NotAuthorized: Image with extension gif is not authorized
+2023-12-13 12:56:14,097 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:316 - NotAuthorized: Image with extension gif is not authorized
+2023-12-13 12:56:26,601 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:316 - CorruptedFile: MVola (copy 1).png is a corrupted image file

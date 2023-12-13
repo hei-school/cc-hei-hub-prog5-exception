@@ -189,8 +189,8 @@ schedule.every(2).seconds.do(reset_request_count)
 # thread = threading.Timer(1, lambda: globals().update(raise_exception(408, "RequestTimeout", f"message")))
 
 
-def raise_exception(code, tyme, message):
-    msg_error = cast_message_to_exception_message(tyme, message)
+def raise_exception(code, type, message):
+    msg_error = cast_message_to_exception_message(type, message)
     return HTTPException(status_code=code, detail=msg_error)
 
 
@@ -243,6 +243,18 @@ def delete_file():
         logging.error(e.detail)
         raise e
 
+@app.get("/divs-by-0")
+def divs_by_0():
+    try:
+        x = 1 / 0
+    except Exception as e:
+        logging.error(e)
+        raise raise_exception(
+            500,
+            "ServerErrorException",
+            f"an error has occurred in the server / {e}"
+        )
+
 
 @app.get("/in-maintenance")
 def in_maintenance():
@@ -291,10 +303,15 @@ async def get_picture(
                 404, "FileNotFound", f"the file with name '{file_name}' is not found."
             )
 
+        media_type="image/jpeg"
+        if('.png' in file_name):
+            media_type = "image/png"
+        elif('.webp' in file_name):
+            media_type = "image/webp"
 
         return FileResponse(
             file_path,
-            media_type="image/jpeg",
+            media_type=media_type,
             headers={"Content-Disposition": f"filename={file_name}"},
         )
     except TimeoutError as e:
@@ -354,7 +371,7 @@ async def upload_files(files: list[UploadFile] = File(...)):
             raise raise_exception(400, "SensitiveFile", f"{n} must be greater than 100")
         if 20000 < 100:
             raise raise_exception(
-                400, "FileNameInvalid", f"{n} must be greater than 100"
+                400, "FileNameInvafilelid", f"{n} must be greater than 100"
             )
         if 20000 < 100:
             raise raise_exception(400, "BadFileType", f"{n} must be greater than 100")

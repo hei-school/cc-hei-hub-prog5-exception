@@ -84,4 +84,9 @@ public class GlobalExceptionHandler {
     String errorMessage = "HTTP " + ex.getHttpStatus().value() + " " + ex.getMessage();
     return new ResponseEntity<>(errorMessage, ex.getHttpStatus());
   }
+  @ExceptionHandler(LockedException.class)
+  public ResponseEntity<String> handleLockedException(LockedException ex) {
+    String errorMessage = "HTTP " + ex.getHttpStatus().value() + " " + ex.getMessage();
+    return new ResponseEntity<>(errorMessage, ex.getHttpStatus());
+  }
 }

@@ -70,7 +70,10 @@ public class PictureController {
         logger.error("TooManyRequestException during gettingPicture", e);
         return ResponseEntity.status(HttpStatus.TOO_MANY_REQUESTS)
                 .body(e.getHttpStatus() + ": " + e.getMessage());
-      }catch (ForLegalReasonException e) {
+      } catch (LockedException e) {
+        return ResponseEntity.status(HttpStatus.LOCKED)
+                .body(e.getHttpStatus() + ": " + e.getMessage());
+      } catch (ForLegalReasonException e) {
         logger.error("ForLegalReasonException during gettingPicture", e);
         return new ResponseEntity<>(e.getHttpStatus() + ": " + e.getMessage(), HttpStatus.UNAVAILABLE_FOR_LEGAL_REASONS);
       } catch (NotFoundException e) {

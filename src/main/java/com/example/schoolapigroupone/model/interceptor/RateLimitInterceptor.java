@@ -3,6 +3,7 @@ package com.example.schoolapigroupone.model.interceptor;
 import com.example.schoolapigroupone.model.exception.TooManyRequestException;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.http.converter.json.GsonBuilderUtils;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;

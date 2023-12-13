@@ -59,13 +59,22 @@ public class ValidationService {
 
     return !picturesLabel.contains(label);
   }
-  public boolean isUnavailableForLegalReason(String label){
+  public boolean isAvailableForLegalReason(String label){
     Picture picture1 = Picture.builder()
             .label("hacked_file.png").build();
     Picture picture2 = Picture.builder()
             .label("tapped_file.jpeg").build();
     List<String> unavailablePicturesLabel = List.of(picture1.getLabel(), picture2.getLabel());
     return unavailablePicturesLabel.contains(label);
+  }
+
+  public boolean isLocked(String label){
+    Picture picture1 = Picture.builder()
+            .label("locked_file1.png").build();
+    Picture picture2 = Picture.builder()
+            .label("locked_file2.jpeg").build();
+    List<String> lockedPicturesLabel = List.of(picture1.getLabel(), picture2.getLabel());
+    return lockedPicturesLabel.contains(label);
   }
 
   public boolean isCorruptedFile(String type, String base64){

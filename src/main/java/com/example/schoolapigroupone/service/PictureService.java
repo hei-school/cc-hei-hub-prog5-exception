@@ -70,8 +70,10 @@ public class PictureService {
     rateLimitInterceptor.preHandle(request, response, null);
     Optional<Picture> picture = pictureRepository.findPictureByLabel(label);
     if(!picture.isPresent()){
-      if (getValidationService().isUnavailableForLegalReason(label)){
+      if (validationService.isAvailableForLegalReason(label)){
         throw new ForLegalReasonException();
+      }else if(getValidationService().isLocked(label)){
+        throw new LockedException();
       }else{
         throw new NotFoundException();
       }

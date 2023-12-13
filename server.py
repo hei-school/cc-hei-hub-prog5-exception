@@ -1,7 +1,7 @@
 import schedule
 import time
 import magic
-from fastapi import FastAPI, File, HTTPException, Query, UploadFile
+from fastapi import FastAPI, File, HTTPException, Query, Request, UploadFile
 from fastapi.responses import JSONResponse
 from fastapi.responses import FileResponse
 import logging
@@ -16,6 +16,16 @@ app = FastAPI()
 
 separation_message_type = ": "
 
+PICTURE_FOLDER = "Pictures"
+
+invalid_name_characters = set(':*<>?/"')
+
+sensitive_content = {"Xxx", "Sex", "porn"}
+
+allowed_extensions = {"jpg", "jpeg", "png"}
+
+not_legal_image_name = ["not_legal.jpg", "forbidden_document.jpg", "pirate.jpg"]
+
 request_count = 0
 
 error_status_codes = [400, 402, 403, 501]
@@ -28,9 +38,6 @@ looked_image_name = ["sensitive_business_file.jpg", "personal_file.jpg"]
 def reset_request_count():
     global request_count
     request_count = 0
-
-
-allowed_extensions = {"jpg", "jpeg", "png", "webp"}
 
 
 # UTILS
@@ -53,6 +60,44 @@ def convert_bytes_to_mb(byte_size):
 
 
 # VALIDATION
+
+
+async def check_file_name(file_name):
+    if any(char in invalid_name_characters for char in file_name):
+        error_code = 400
+        raise raise_exception(
+            error_code,
+            "FilenameInvalid",
+            f"File name: {file_name} is invalide, it contains one of these characters {invalid_name_characters}",
+        )
+
+
+async def check_sensitive_content(file_name):
+    if any(content in sensitive_content for content in file_name):
+        error_code = 400
+        raise raise_exception(
+            error_code,
+            "SensitiveFileException",
+            f"The file {file_name} contains sensitive content",
+        )
+
+
+async def check_duplication(file, folder_name: str):
+    file_name = file.filename
+
+    # Check if the folder exists
+    if not os.path.exists(folder_name):
+        raise FileNotFoundError(f"Folder '{folder_name}' not found.")
+
+    # Check if the file exists in the folder
+    file_path = os.path.join(folder_name, file_name)
+    if os.path.isfile(file_path):
+        error_code = 400
+        raise raise_exception(
+            error_code,
+            "DuplicatedFile",
+            f"file with name {file_name} already exists, rename the file to upload",
+        )
 
 
 # Check file storage size
@@ -88,18 +133,6 @@ async def check_file_size(file_size, max_size_mb=2):
         )
 
 
-# Check file size
-async def check_file_size(file_size, max_size_mb=2):
-    # Check if file size exceeds the allowed limit
-    if file_size > max_size_mb * 1024 * 1024:
-        error_code = 413
-        raise raise_exception(
-            error_code,
-            "FileTooLarge",
-            f"File size exceeds the allowed limit ({max_size_mb} MB)",
-        )
-
-
 # Check file type
 async def check_image_type(file):
     file_bytes = await file.read()
@@ -120,7 +153,7 @@ async def check_image_type(file):
         raise raise_exception(
             400,
             "BadFileType",
-            f"{file.filename} don't have correct file type (jpg, jpeg, png)",
+            f"{file.filename} don't have correct file type {allowed_extensions}",
         )
 
 
@@ -137,6 +170,13 @@ async def check_file_content(files):
 
 
 # CUSTOM EXCEPTIONS
+
+
+@app.middleware("http")
+async def set_timeout(request: Request, call_next):
+    response = await call_next(request)
+    response.timeout = 5  # seconds
+    return response
 
 
 def cast_message_to_exception_message(error_type, message):
@@ -193,7 +233,7 @@ for status_code in error_status_codes:
         return JSONResponse(status_code=exc.status_code, content=error_message)
 
 
-@app.get("/pictures")
+@app.delete("/picture")
 def delete_file():
     try:
         raise raise_exception(
@@ -205,7 +245,7 @@ def delete_file():
 
 
 @app.get("/in-maintenance")
-def delete_file():
+def in_maintenance():
     try:
         raise raise_exception(
             503, "ServiceUnavailable", f"the service u want to use in in  maintenance."
@@ -224,7 +264,7 @@ async def get_picture(
         schedule.run_pending()
         global request_count
         request_count += 1
-        file_path = os.path.join("Pictures", file_name)
+        file_path = os.path.join(PICTURE_FOLDER, file_name)
         print(file_path)
         if request_count > 2:
             raise raise_exception(
@@ -273,18 +313,22 @@ async def upload_files(files: list[UploadFile] = File(...)):
         request_count += 1
 
         await check_file_content(files)
-
         uploaded_files = []
         print(files)
         print(files.count)
         for file in files:
             await check_file_size(file.size)
+            await check_duplication(file, PICTURE_FOLDER)
+            await check_file_name(file.filename)
             await check_image_type(file)
-            max_storage_size = 6
-            await check_storage_space_available("Pictures", max_storage_size, file)
+            await check_sensitive_content(file.filename)
+            max_storage_size_mb = 6
+            await check_storage_space_available(
+                PICTURE_FOLDER, max_storage_size_mb, file
+            )
 
             # Save the file to the 'images' folder
-            with open(f"Pictures/{file.filename}", "wb") as image_file:
+            with open(f"{PICTURE_FOLDER}/{file.filename}", "wb") as image_file:
                 image_file.write(file.file.read())
 
             uploaded_files.append(

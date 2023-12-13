@@ -31,6 +31,7 @@ Install the dependencies of the python project with pip
   pip install uvicorn
   pip install python-magic
   pip install schedule
+  pip install python-multipart
 ```
 
 ## Usage

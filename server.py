@@ -162,7 +162,7 @@ async def get_picture(
         schedule.run_pending()
         global request_count
         request_count += 1
-        file_path = os.path.join("picture", file_name)
+        file_path = os.path.join("Pictures", file_name)
 
         if request_count > 2:
             raise raise_exception(

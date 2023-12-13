@@ -41,13 +41,7 @@ Go to the application's root directory, then run the command :
   python server.py
 ```
 
-To test these exceptions, submit requests by following [the postman collection]("https://....").
-## Features
-
-- Light/dark mode toggle
-- Live previews
-- Fullscreen mode
-- Cross platform
+To test these exceptions, submit requests by following [the postman collection]("https://raw.githubusercontent.com/hei-school/cc-hei-hub-prog5-exception/feature/python/docs/prog5p2.postman_collection.json").
 
 ## Features
 

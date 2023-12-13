@@ -18,6 +18,8 @@ We can find the 2 implementations of the program in the different languages (Jav
 
 For this exception simulator, we have a simple RESTful API application that allows image files to be uploaded and downloaded from endpoints.
 
+With logger that saves trace information into a file.
+
 ## Requirement
 
 [Download](https://www.python.org/downloads/) and install Python 3.10 or higher

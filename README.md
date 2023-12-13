@@ -20,7 +20,7 @@ For this exception simulator, we have a simple RESTful API application that allo
 
 ## Requirement
 
-[Download]("https://www.python.org/downloads/") and install Python 3.10 or higher
+[Download](https://www.python.org/downloads/) and install Python 3.10 or higher
 
 ## Installation
 
@@ -41,7 +41,7 @@ Go to the application's root directory, then run the command :
   python server.py
 ```
 
-To test these exceptions, submit requests by following [the postman collection]("https://raw.githubusercontent.com/hei-school/cc-hei-hub-prog5-exception/feature/python/docs/prog5p2.postman_collection.json").
+To test these exceptions, submit requests by following [the postman collection](https://raw.githubusercontent.com/hei-school/cc-hei-hub-prog5-exception/feature/python/docs/prog5p2.postman_collection.json).
 
 ## Features
 

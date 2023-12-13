@@ -30,8 +30,6 @@ request_count = 0
 
 error_status_codes = [400, 402, 403, 501]
 
-not_legal_image_name = ["not_legal.jpg", "forbidden_document.jpg", "pirate.jpg"]
-
 looked_image_name = ["sensitive_business_file.jpg", "personal_file.jpg"]
 
 
@@ -243,6 +241,7 @@ def delete_file():
         logging.error(e.detail)
         raise e
 
+
 @app.get("/divs-by-0")
 def divs_by_0():
     try:
@@ -250,9 +249,7 @@ def divs_by_0():
     except Exception as e:
         logging.error(e)
         raise raise_exception(
-            500,
-            "ServerErrorException",
-            f"an error has occurred in the server / {e}"
+            500, "ServerErrorException", f"an error has occurred in the server / {e}"
         )
 
 
@@ -303,10 +300,10 @@ async def get_picture(
                 404, "FileNotFound", f"the file with name '{file_name}' is not found."
             )
 
-        media_type="image/jpeg"
-        if('.png' in file_name):
+        media_type = "image/jpeg"
+        if ".png" in file_name:
             media_type = "image/png"
-        elif('.webp' in file_name):
+        elif ".webp" in file_name:
             media_type = "image/webp"
 
         return FileResponse(

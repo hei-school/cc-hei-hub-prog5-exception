@@ -31,7 +31,8 @@ def cast_message_to_exception_message(error_type, message):
     return f"{error_type}{separation_message_type}{message}"
 
 
-schedule.every(1).seconds.do(reset_request_count)
+schedule.every(2).seconds.do(reset_request_count)
+
 
 # thread = threading.Timer(1, lambda: globals().update(raise_exception(408, "RequestTimeout", f"message")))
 
@@ -79,10 +80,19 @@ for status_code in error_status_codes:
         )
 
 
-@app.get("/delete")
+@app.get("/pictures")
 def delete_file():
     try:
         raise raise_exception(501, "NotImplemented", f"the endpoint /delete is not implemented ")
+    except HTTPException as e:
+        logging.error(e.detail)
+        raise e
+
+
+@app.get("/in-maintenance")
+def delete_file():
+    try:
+        raise raise_exception(503, "ServiceUnavailable", f"the service u want to use in in  maintenance.")
     except HTTPException as e:
         logging.error(e.detail)
         raise e

@@ -133,3 +133,322 @@ fastapi.exceptions.HTTPException
 2023-12-13 17:56:52,840 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:221 -  --- --- --- --- --- --- --- --- ---
 
 
+2023-12-13 18:29:19,182 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:131 - LegalReason: the file with name 'not_legal.jpg' cannot be downloaded for legal reasons
+2023-12-13 18:29:19,184 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:33 - Traceback (most recent call last):
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 132, in get_picture
+    raise e
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 98, in get_picture
+    raise raise_exception(
+fastapi.exceptions.HTTPException
+
+2023-12-13 18:29:19,184 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:34 -  --- --- --- --- --- --- --- --- ---
+
+
+2023-12-13 18:29:38,595 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:131 - LockedException: the file with name 'sensitive_business_file.jpg' is looked, so it cannot be downloaded
+2023-12-13 18:29:38,596 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:33 - Traceback (most recent call last):
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 132, in get_picture
+    raise e
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 105, in get_picture
+    raise raise_exception(
+fastapi.exceptions.HTTPException
+
+2023-12-13 18:29:38,596 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:34 -  --- --- --- --- --- --- --- --- ---
+
+
+2023-12-13 18:29:48,953 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:131 - TooManyRequest: must not execute request more than 2 times per second
+2023-12-13 18:29:48,954 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:33 - Traceback (most recent call last):
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 132, in get_picture
+    raise e
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 92, in get_picture
+    raise raise_exception(
+fastapi.exceptions.HTTPException
+
+2023-12-13 18:29:48,955 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:34 -  --- --- --- --- --- --- --- --- ---
+
+
+2023-12-13 18:29:49,621 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:131 - TooManyRequest: must not execute request more than 2 times per second
+2023-12-13 18:29:49,621 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:33 - Traceback (most recent call last):
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 132, in get_picture
+    raise e
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 92, in get_picture
+    raise raise_exception(
+fastapi.exceptions.HTTPException
+
+2023-12-13 18:29:49,621 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:34 -  --- --- --- --- --- --- --- --- ---
+
+
+2023-12-13 18:29:51,738 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:131 - TooManyRequest: must not execute request more than 2 times per second
+2023-12-13 18:29:51,739 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:33 - Traceback (most recent call last):
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 132, in get_picture
+    raise e
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 92, in get_picture
+    raise raise_exception(
+fastapi.exceptions.HTTPException
+
+2023-12-13 18:29:51,739 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:34 -  --- --- --- --- --- --- --- --- ---
+
+
+2023-12-13 18:30:04,750 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:54 - NotImplemented: the endpoint /delete is not implemented 
+2023-12-13 18:30:05,798 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:54 - NotImplemented: the endpoint /delete is not implemented 
+2023-12-13 18:30:10,138 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:76 - ServiceUnavailable: the service u want to use in in  maintenance.
+2023-12-13 18:30:10,148 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:33 - Traceback (most recent call last):
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 193, in run_endpoint_function
+    return await run_in_threadpool(dependant.call, **values)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/concurrency.py", line 41, in run_in_threadpool
+    return await anyio.to_thread.run_sync(func, *args)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/anyio/to_thread.py", line 33, in run_sync
+    return await get_asynclib().run_sync_in_worker_thread(
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 877, in run_sync_in_worker_thread
+    return await future
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/anyio/_backends/_asyncio.py", line 807, in run
+    result = context.run(func, *args)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 77, in in_maintenance
+    raise e
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 72, in in_maintenance
+    raise raise_exception(
+fastapi.exceptions.HTTPException
+
+2023-12-13 18:30:10,148 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:34 -  --- --- --- --- --- --- --- --- ---
+
+
+2023-12-13 18:31:17,852 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:175 - InsufficientCloudStorage: 6.00 MB maximum storage reached, need 2.13 MB more
+2023-12-13 18:31:17,853 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:33 - Traceback (most recent call last):
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 176, in upload_files
+    raise e
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 153, in upload_files
+    await check_storage_space_available(
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/validation.py", line 71, in check_storage_space_available
+    raise raise_exception(
+fastapi.exceptions.HTTPException
+
+2023-12-13 18:31:17,853 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:34 -  --- --- --- --- --- --- --- --- ---
+
+
+2023-12-13 18:31:43,695 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:131 - FileNotFound: the file with name 'ofgdsfsk.jpg' is not found.
+2023-12-13 18:31:43,695 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:33 - Traceback (most recent call last):
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 132, in get_picture
+    raise e
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 112, in get_picture
+    raise raise_exception(
+fastapi.exceptions.HTTPException
+
+2023-12-13 18:31:43,696 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:34 -  --- --- --- --- --- --- --- --- ---
+
+
+2023-12-13 18:31:55,492 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:175 - DuplicatedFile: file with name errors.jpg already exists, rename the file to upload
+2023-12-13 18:32:04,705 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:175 - FileTooLarge: File size exceeds the allowed limit (2 MB)
+2023-12-13 18:32:04,707 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:33 - Traceback (most recent call last):
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 176, in upload_files
+    raise e
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 147, in upload_files
+    await check_file_size(file.size)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/validation.py", line 83, in check_file_size
+    raise raise_exception(
+fastapi.exceptions.HTTPException
+
+2023-12-13 18:32:04,707 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:34 -  --- --- --- --- --- --- --- --- ---
+
+
+2023-12-13 18:32:11,144 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:175 - SensitiveFileException: The file 18XxX.jpg contains sensitive content
+2023-12-13 18:32:21,078 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:175 - FilenameInvalid: File name: :test*.jpg is invalide, it contains one of these characters {'?', '/', ':', '*', '>', '"', '<'}
+2023-12-13 18:32:37,982 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:175 - NotAuthorized: Image with extension gif is not authorized
+2023-12-13 18:32:37,983 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:33 - Traceback (most recent call last):
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 176, in upload_files
+    raise e
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 150, in upload_files
+    await check_image_type(file)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/validation.py", line 101, in check_image_type
+    raise raise_exception(
+fastapi.exceptions.HTTPException
+
+2023-12-13 18:32:37,983 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:34 -  --- --- --- --- --- --- --- --- ---
+
+
+2023-12-13 18:32:48,110 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:175 - CorruptedFile: corrupt.jpg is a corrupted image file
+2023-12-13 18:32:48,111 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:33 - Traceback (most recent call last):
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/middleware/exceptions.py", line 68, in __call__
+    await self.app(scope, receive, sender)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 20, in __call__
+    raise e
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/middleware/asyncexitstack.py", line 17, in __call__
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 718, in __call__
+    await route.handle(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 276, in handle
+    await self.app(scope, receive, send)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/starlette/routing.py", line 66, in app
+    response = await func(request)
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 274, in app
+    raw_response = await run_endpoint_function(
+  File "/home/fenohasinalala/.pyenv/versions/3.10.13/lib/python3.10/site-packages/fastapi/routing.py", line 191, in run_endpoint_function
+    return await dependant.call(**values)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 176, in upload_files
+    raise e
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py", line 150, in upload_files
+    await check_image_type(file)
+  File "/run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/validation.py", line 97, in check_image_type
+    raise raise_exception(
+fastapi.exceptions.HTTPException
+
+2023-12-13 18:32:48,111 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/exception.py:34 -  --- --- --- --- --- --- --- --- ---
+
+
+2023-12-13 18:33:12,203 - ERROR - /run/media/fenohasinalala/Extension/boss_ext/hei/prog5p2/error_manager/cc-hei-hub-prog5-exception/server.py:175 - BadFileType: facebook_clone(1).zip don't have correct file type {'jpg', 'jpeg', 'png'}

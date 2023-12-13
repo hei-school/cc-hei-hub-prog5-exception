@@ -13,6 +13,7 @@ We can find the 2 implementations of the program in the different languages (Jav
 - Python in the branch [feature/python](https://github.com/hei-school/cc-hei-hub-prog5-exception/tree/feature/python).
 - Java in the branch [feature/java](https://github.com/hei-school/cc-hei-hub-prog5-exception/tree/feature/java).
 
+
 ## Description
 
 For this exception simulator, we have a simple RESTful API application that allows image files to be uploaded and downloaded from endpoints.
@@ -41,7 +42,6 @@ Go to the application's root directory, then run the command :
 ```
 
 To test these exceptions, submit requests by following [the postman collection]("https://....").
-
 ## Features
 
 - Light/dark mode toggle
@@ -130,8 +130,8 @@ Indicates that the requested resource is locked and cannot be accessed.
 ### 16. `LegalReasonException` (HTTP Status Code: 453)
 
 Thrown when access to a resource is denied for legal reasons.
-
 ## License
 
 This project is licensed under the [MIT License](LICENSE.md).
+
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-24ddc0f5d75046c5622901739e7c5dd533143b0c8e959d652212380cedb1ea36.svg)](https://classroom.github.com/a/wTBA-Etm)

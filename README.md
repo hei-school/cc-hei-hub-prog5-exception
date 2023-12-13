@@ -16,7 +16,7 @@ We can find the 2 implementations of the program in the different languages (Jav
 
 1. Open IntelliJ, preferably, and change the application.properties located in `src/main/resources/application.properties` with your database name and password.
 2. Start the application by running the class SchoolApiGroupOneApplication.java located in `src/main/java/com/example/schoolapigroupone/SchoolApiGroupOneApplication.java`
-3. To test these exceptions, submit requests by following [the postman collection]("https://...."). For that, import the postman collection located on the root `Collection.json`
+3. To test these exceptions, submit requests by following [the postman collection]("https://...."). For that, import the postman collection located at the root `Collection.json`
 
 ## License
 

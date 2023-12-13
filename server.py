@@ -20,7 +20,7 @@ PICTURE_FOLDER = "Pictures"
 
 invalid_name_characters = set(':*<>?/"')
 
-sensitive_content = {"Xxx", "Sex", "porn"}
+sensitive_content = {"xxx", "sex", "porn"}
 
 allowed_extensions = {"jpg", "jpeg", "png"}
 
@@ -71,7 +71,7 @@ async def check_file_name(file_name):
 
 
 async def check_sensitive_content(file_name):
-    if any(content in sensitive_content for content in file_name):
+    if any(content in file_name.lower() for content in sensitive_content):
         error_code = 400
         raise raise_exception(
             error_code,
